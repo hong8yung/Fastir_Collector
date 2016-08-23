@@ -360,3 +360,24 @@ class _FS(object):
                 zip_archive(outlook_pst_files, self.output_dir, 'pst', self.logger)
             if len(outlook_ost_files) > 0:
                 zip_archive(outlook_ost_files, self.output_dir, 'ost', self.logger)
+
+############ add by hong8yung (Bang Ho yun) ################
+    def __check_realtime(self):
+	"""Checks intenet time and local time"""
+	import ntplib, datetime
+	from time import ctime
+	c = ntplib.NTPClient()
+	response = c.request('europe.pool.ntp.org', version=3)
+	real_time = ctime(response.tx_time)
+	local_time = datetime.datetime.now().ctime()
+	to_csv_list = [("Real Time", "Computer LocalTime")]
+	to_csv_list.append((real_time, local_time))
+        return to_csv_list
+    
+   def _csv_check_realtime(self):
+	with open(self.output_dir + "\\" + self.computer_name + "_CheckRealTime" + self.rand_ext, "wb") as output:
+		csv_writer = get_csv_writer(output)
+		write_list_to_csv(self.__check_realtime(), csv_writer)
+
+            
+###########################################################
