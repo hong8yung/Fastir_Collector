@@ -77,3 +77,4 @@ The full documentation can be download here: https://github.com/SekoiaLab/Fastir
 A post about FastIR Collector and advanced Threats can be consulted here:  http://www.sekoia.fr/blog/fastir-collector-on-advanced-threats
 
 with the paper:  http://www.sekoia.fr/blog/wp-content/uploads/2015/10/FastIR-Collector-on-advanced-threats_v1.4.pdf
+
